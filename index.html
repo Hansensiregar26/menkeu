@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="logo_kppn-removebg-preview.png">
+
+    <title>KPPN Medan I</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background: #f5f6fa;
+        }
+
+        /* NAVBAR */
+        header {
+            width: 100%;
+            background: linear-gradient(90deg, #1d2bc9, #2433a6);
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .navbar {
+            width: 90%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a.active,
+        .nav-links a:hover {
+            color: #ffeb3b;
+        }
+
+        /* HERO */
+        .hero {
+            background: url('foto-gkn.jpg') center/cover no-repeat;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+            position: relative;
+        }
+
+        .hero::after {
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(28, 46, 206, 0.45);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 20px;
+            backdrop-filter: blur(2px);
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 22px;
+            margin-bottom: 25px;
+        }
+
+        .btn-utama {
+            padding: 12px 28px;
+            background: #1a2be7;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+        }
+
+        .btn-utama:hover {
+            background: #1420b9;
+        }
+
+        /* SECTIONS */
+        .section {
+            width: 80%;
+            margin: auto;
+            padding: 70px 0;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #2433a6;
+            font-weight: 700;
+        }
+
+        .section p {
+            font-size: 17px;
+            margin-bottom: 15px;
+            color: #444;
+            line-height: 1.8;
+        }
+
+        /* PROGRAM */
+        .program-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            transition: 0.3s ease;
+            border-top: 6px solid #2433a6;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #2433a6;
+        }
+
+        /* VISI MISI TABLE */
+        .visimisi-table {
+            width: 90%;
+            max-width: 900px;
+            margin: 35px auto;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        .visimisi-table th {
+            background: #2433a6;
+            color: white;
+            padding: 18px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .visimisi-table td {
+            padding: 22px;
+            font-size: 16px;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        /* KONTAK STYLING */
+        .kontak-section {
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 70px 0;
+        }
+
+        .kontak-container {
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .kontak-card {
+            width: 260px;
+            background: #f7f8ff;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+            transition: 0.3s;
+            border-top: 5px solid #2433a6;
+        }
+
+        .kontak-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+        }
+
+        .kontak-card img {
+            width: 50px;
+            margin-bottom: 12px;
+            filter: drop-shadow(0 0 3px rgba(0,0,0,0.2));
+        }
+
+        .kontak-card h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+            color: #2433a6;
+        }
+
+        .kontak-card p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #2433a6;
+            color: white;
+            text-align: center;
+            padding: 18px 0;
+            margin-top: 40px;
+            font-size: 15px;
+        }
+
+        .social-wrapper {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+    }
+
+    .social-box {
+        background: #f7f7f7;
+        padding: 15px 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        display: flex;
+        gap: 18px;
+        align-items: center;
+        border: 1px solid #e0e0e0;
+    }
+
+    .social-box a img {
+        width: 30px;
+        height: 30px;
+        transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .social-box a:hover img {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img style="width: 85px; filter: drop-shadow(0 0 3px rgba(242, 32, 32, 0.267));" src="logo_kppn-removebg-preview.png">
+                <div>
+                    <span>Kantor Pelayanan Perbendaharaan</span><br>
+                    <small>Medan I</small>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#beranda" class="active">Beranda</a></li>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#program">Program</a></li>
+                <li><a href="#visimisi">Visi & Misi</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="beranda" class="hero">
+        <div class="hero-content">
+            <h1>Selamat Datang</h1>
+            <p>Website Resmi Kantor Pelayanan Perbendaharaan Negara Medan I</p>
+            <a href="#tentang" class="btn-utama">Pelajari Lebih Lanjut</a>
+        </div>
+    </section>
+
+    <section id="tentang" class="section">
+        <h2>Tentang KPPN Medan I</h2>
+        <p>KPPN Medan I adalah Kantor Pelayanan Perbendaharaan Negara yang terletak di Jl. Pangeran Diponegoro No.30A, Madras Hulu, Kec. Medan Polonia, Kota Medan, Sumatera Utara 20152, Indonesia. Kantor ini bertanggung jawab untuk melaksanakan kewenangan perbendaharaan dan penyaluran pembiayaan atas beban anggaran.</p>
+    </section>
+
+    <section id="visimisi" class="section">
+        <h2>Visi & Misi KPPN Medan I</h2>
+
+        <table class="visimisi-table">
+            <tr>
+                <th>Visi</th>
+                <td>Menjadi institusi layanan perbendaharaan yang profesional...</td>
+            </tr>
+            <tr>
+                <th>Misi</th>
+                <td>
+                    <ol>
+                        <li>Memberikan pelayanan publik yang cepat, tepat, transparan, dan berintegritas dalam mendukung pelaksanaan anggaran negara.</li>
+                        <li>Mendorong penguatan tata kelola perbendaharaan negara yang efektif, efisien, dan sesuai ketentuan perundang-undangan.</li>
+                        <li>Mengelola penyaluran dana APBN secara optimal, tepat waktu, tepat sasaran, dan tepat aturan demi mendukung pelaksanaan pembangunan nasional.</li>
+                        <li>Memanfaatkan teknologi informasi secara maksimal untuk meningkatkan efisiensi proses bisnis serta mendukung transformasi digital perbendaharaan.</li>
+                        <li>Membangun budaya kerja yang berintegritas, profesional, dan berorientasi pada kinerja, guna menghasilkan SDM yang unggul dan adaptif.</li>
+                    </ol>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="program" class="section">
+        <h2>Program & Layanan</h2>
+
+        <div class="program-container">
+            <div class="card">
+                <h3>Subbagian Umum</h3>
+                <p>Subbagian Umum bertugas menyelenggarakan pelayanan administrasi umum yang meliputi pengelolaan kepegawaian, keuangan internal, barang milik negara (BMN), tata persuratan, arsip, kerumahtanggaan, serta memberikan dukungan administratif bagi seluruh unit kerja di lingkungan KPPN Medan I.</p>
+            </div>
+
+            <div class="card">
+                <h3>Seksi Bank</h3>
+                <p>Seksi Bank berperan dalam pelaksanaan penyaluran dana APBN, pengelolaan dan rekonsiliasi data transaksi perbendaharaan, pengawasan rekening pemerintah, penatausahaan penerimaan negara, serta memastikan kelancaran operasional kas negara melalui koordinasi dengan perbankan mitra.</p>
+            </div>
+
+            <div class="card">
+                <h3>Seksi Pencairan Dana</h3>
+                <p>Seksi Pencairan Dana melaksanakan verifikasi kelengkapan dan kebenaran SPM, menerbitkan SP2D, memonitor realisasi pencairan dana APBN, serta memberikan pembinaan kepada satuan kerja terkait prosedur dan ketentuan pencairan dana APBN.</p>
+            </div>
+
+            <div class="card">
+                <h3>Seksi Verifikasi & Akuntansi</h3>
+                <p>Seksi Verifikasi dan Akuntansi bertanggung jawab atas verifikasi transaksi keuangan, penyusunan laporan keuangan tingkat KPPN, rekonsiliasi laporan keuangan satuan kerja, serta pembinaan di bidang akuntansi dan pelaporan untuk memastikan akurasi dan akuntabilitas pengelolaan keuangan negara.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ✨ KONTAK BARU YANG SUDAH DIPERCANTIK ✨ -->
+    <section id="kontak" class="section kontak-section">
+        <h2>Kontak</h2>
+
+        <div class="kontak-container">
+
+            <div class="kontak-card">
+                <img src="phone-call.png" alt="Telepon">
+                <h3>Telepon</h3>
+                <p>(061) 453849</p>
+            </div>
+
+            <div class="kontak-card">
+                <img src="email.png" alt="Email">
+                <h3>Email</h3>
+                <p>kppnmedan1@kemenkeu.go.id</p>
+            </div>
+
+            <div class="kontak-card">
+                <img src="gps.png" alt="Alamat">
+                <h3>Alamat</h3>
+                <p>Jl. Diponegoro No. 30, Medan</p>
+
+        
+            </div>
+            
+        </div>
+    </section>
+    
+    <div class="social-wrapper">
+    <fieldset class="social-box">
+        <a href="https://www.instagram.com/kppnmedan1/" aria-label="Instagram KPPN Medan I">
+            <img src="instagram.png" alt="Instagram">
+        </a>
+        <a href="https://www.youtube.com/c/KPPNMedan1" aria-label="YouTube KPPN Medan I">
+            <img src="youtube.png" alt="YouTube">
+        </a>
+        <a href="http://x.com/kppn_medan1" aria-label="Twiter KPPN Medan I">
+            <img src="twitter.png" alt="Twiter">
+        </a>
+    </fieldset>
+</div>
+</div>
+
+    
+
+    <footer>
+        <p>© 2025 KPPN Medan I - Semua Hak Dilindungi</p>
+    </footer>
+
+    <script>
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".nav-links a");
+
+        window.addEventListener("scroll", () => {
+            let current = "";
+
+            sections.forEach(section => {
+                const top = section.offsetTop - 80;
+                if (pageYOffset >= top) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach(a => {
+                a.classList.remove("active");
+                if (a.getAttribute("href").includes(current)) {
+                    a.classList.add("active");
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
